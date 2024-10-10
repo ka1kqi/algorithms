@@ -1,6 +1,6 @@
 # Gaussian Elimination
 
-Row reduction algorithm for matrices
+Row reduction algorithm for augmented matrices
 
 The algorithm works by finding the largest number in the current column, which becomes our pivot. We then reduce the other columns by subtracting the row from every other row so that the other values in the column are 0, meaning there should only be 1 value that isn't 0 in every column. 
 Row echelon form also says that the value that is not 0 must be above all the values that are 0.
