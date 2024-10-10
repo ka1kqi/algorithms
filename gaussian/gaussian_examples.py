@@ -1,6 +1,14 @@
 import gaussian_elimination as gauss
 import numpy as np
 
+"""
+This script reduced augmented matrices into Row Reduced Echelon Form
+Idk why i made it so it only works on augmented matrices, perhaps
+because thats what I was learning in class but idk
+Will fix eventually to work on every matrix
+"""
+
+print("\033[91m-------------------------------------------------------\033[0m")
 print("\033[91mExample 1\033[0m")
 A = np.array(
     [ 
