@@ -1,5 +1,4 @@
 import numpy as np
-import math
 
 """
 #param A, an m x n augmented matrix 
@@ -37,7 +36,7 @@ def _gaussian_elimination_(A):
 
 """
 @param A an augmented m x n matrix
-currently buggy, needs fix
+currently needs fix for matrices that are not square
 """
 def _gauss_jordan_(A):
     print("reducing gauss jordan")
@@ -47,13 +46,14 @@ def _gauss_jordan_(A):
     row = rows-1
     #start from cols-2 since the last column is not a pivot
     col = cols-2
+    solution = True
     while col > -1:
         pivot_value = A[row,col]
         #we can't divide by 0
         if pivot_value==0:
             if A[row,cols-1]!=0:
-                print("System has no solution")
-                exit(0)
+                #flag no solution
+                solution=False
             row-=1
             continue
         #reduce each element in row
@@ -65,12 +65,24 @@ def _gauss_jordan_(A):
         print_matrix(A)
         row-=1
         col-=1
+    if not solution:
+        print("System has no solution")
+
+"""
+Will add backtracing
+"""
+def back_sub(A):
+    rows = len(A)
+    cols = A[0].size
+    print()
 
 """
 @param A an augmented m x n matrix
 """
 def rref(A):
     _gaussian_elimination_(A)
+    print("Row echelon form: ")
+    print_matrix(A)
     _gauss_jordan_(A)
     print("Row reduced echelon form: ")
     print_matrix(A)
@@ -98,7 +110,7 @@ def swap(A,x,y):
 def print_matrix(A):
     for r in range(len(A)):
         for c in range(len(A[r])):
-            #print("%.2f"%A[r,c],end='\t')
-            print(str(A[r,c]),end='\t')
+            print("%.2f"%A[r,c],end='\t')
+            #print(str(A[r,c]),end='\t')
         print()
     print()
