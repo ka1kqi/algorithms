@@ -7,7 +7,7 @@ def _gaussian_elimination_(A):
     rows = len(A)
     cols = A[0].size
     if rows == 1 or cols ==1:
-        print("Invalid matrix")
+        print("Invalid matrix, cannot reduce")
         return
     row = 0
 
@@ -66,7 +66,7 @@ def _gauss_jordan_(A):
         row-=1
         col-=1
     if not solution:
-        print("System has no solution")
+        print("\033[94mSystem has no solution\033[00m")
 
 """
 Will add backtracing
@@ -81,13 +81,13 @@ def back_sub(A):
 """
 def rref(A):
     _gaussian_elimination_(A)
-    print("Row echelon form: ")
+    print("\033[93mRow Echelon Form: \033[00m")
     print_matrix(A)
     _gauss_jordan_(A)
-    print("Row reduced echelon form: ")
+    print("\033[92mReduced Row Echelon Form: \033[00m")
     print_matrix(A)
 
-#max in column after row
+#max in column after row, used to choose which row to swap
 def get_col_max(A,r,c):
     if r == len(A)-1:
         return r
