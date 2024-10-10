@@ -1,7 +1,7 @@
 import gaussian_elimination as gauss
 import numpy as np
 
-
+print("\033[91mExample 1\033[0m")
 A = np.array(
     [ 
         [1,3,1,4],
@@ -10,17 +10,22 @@ A = np.array(
     ]
 )
 A=A.astype(float)
-#gauss.rref(A)
+gauss.rref(A)
 
-A=np.array(
+print()
+print("\033[91m-------------------------------------------------------\033[0m")
+print()
+
+print("\033[91mExample 2\033[0m")
+B=np.array(
     [
-        [1,6,2,-5,-2,-4],
-        [0,0,2,-8,-1,3],
-        [0,0,0,0,1,7]
+        [3,0,0,0],
+        [3,10,5,0],
+        [4,20,7,0]
     ]
 )
-#A=A.astype(float)
-gauss.rref(A)
+B=B.astype(float)
+gauss.rref(B)
 
 
 
