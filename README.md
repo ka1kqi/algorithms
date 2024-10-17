@@ -1,5 +1,5 @@
 # algorithms
-common algorithms coded in python
+math and cs algorithms coded in python
 
 Completed:\
 Monte Carlo for Pi estimation\
